@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Home | Therapist Portal</title>
-    <style>
-        body { font-family: Arial; text-align: center; margin-top: 100px; background: #f7f7f7; }
-        h1 { color: #333; }
-        a { text-decoration: none; color: #007bff; }
-    </style>
+    <title>Therapist Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
-    <% if (name) { %>
-        <h1>Welcome, <%= name %> 👋</h1>
-        <p>You are logged in as a therapist.</p>
-    <% } else { %>
-        <h1>Welcome to Therapist Portal</h1>
-        <a href="/register">Register</a> | <a href="/login">Login</a>
-    <% } %>
+
+<body
+    class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-100 flex items-center justify-center h-screen">
+    <div class="text-center space-y-6">
+        <% if (name) { %>
+            <h1 id="welcomeText" class="text-4xl font-bold opacity-0">Welcome, <%= name %> 👋</h1>
+            <p class="text-gray-400">You’re logged in as a therapist.</p>
+            <% } else { %>
+                <h1 id="welcomeText" class="text-5xl font-extrabold opacity-0">Veridia</h1>
+                <p class="text-gray-400 text-lg">A secure place for mental health professionals</p>
+                <div class="space-x-4 mt-6">
+                    <a href="/register"
+                        class="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg transition">Register</a>
+                    <a href="/login"
+                        class="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg transition">Login</a>
+                </div>
+                <% } %>
+    </div>
+
+    <script>
+        gsap.to("#welcomeText", { opacity: 1, y: -10, duration: 1, ease: "power2.out" });
+    </script>
 </body>
+
 </html>
