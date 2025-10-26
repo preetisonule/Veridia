@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home | Therapist Portal</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 100px; background: #f7f7f7; }
+        h1 { color: #333; }
+        a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <% if (name) { %>
+        <h1>Welcome, <%= name %> 👋</h1>
+        <p>You are logged in as a therapist.</p>
+    <% } else { %>
+        <h1>Welcome to Therapist Portal</h1>
+        <a href="/register">Register</a> | <a href="/login">Login</a>
+    <% } %>
+</body>
+</html>
